@@ -314,6 +314,15 @@ module.exports = function(webpackEnv) {
         new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
       ],
     },
+    devServer: {
+      proxy: {
+        '/weather_mini': { // api表示当前项目请求的key
+          target: 'http://wthrcdn.etouch.cn', // 代理服务器路径
+          //pathRewrite: {'^/api' : '/'}, // 重写路径
+          changeOrigin: true
+        }
+      }
+   },
     resolveLoader: {
       plugins: [
         // Also related to Plug'n'Play, but this time it tells Webpack to load its loaders

@@ -14,7 +14,6 @@ process.on('unhandledRejection', err => {
 // Ensure environment variables are read.
 require('../config/env');
 
-
 const fs = require('fs');
 const chalk = require('react-dev-utils/chalk');
 const webpack = require('webpack');
@@ -107,6 +106,7 @@ checkBrowsers(paths.appPath, isInteractive)
       urls.lanUrlForConfig
     );
     const devServer = new WebpackDevServer(compiler, serverConfig);
+    require('../src/setupProxy')(devServer);
     // Launch WebpackDevServer.
     devServer.listen(port, HOST, err => {
       if (err) {
