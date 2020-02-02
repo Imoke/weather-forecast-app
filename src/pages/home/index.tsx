@@ -81,10 +81,6 @@ function Home() {
             }
             
             return (
-              // <Tag color={'blue'} key={item}>
-              //   {item.toUpperCase(), 
-              // </Tag>
-              // <i className="iconfont" style={{width:'50px',height:'50px',borderRadius:'50%'}}>&#xe60a;</i>
               <IconFont type={icon} style={{ fontSize: '32px' }}/> 
               );
           })}
@@ -136,7 +132,7 @@ function Home() {
         setTimeout(() => { setIsLoading(false) }, 1000)
         return
       }
-      await axios.get(`http://wthrcdn.etouch.cn/weather_mini?city=${city}`)
+      await axios.get(`/weather_mini?city=${city}`)
         .then(res => {
           setData(res.data);
           setTimeout(() => { setIsLoading(false) }, 1000)
