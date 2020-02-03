@@ -124,7 +124,7 @@ function Header() {
                   <Select
                     showSearch
                     style={{ width: 200 }}
-                    placeholder="Select a person"
+                    placeholder="Select or add a city"
                     optionFilterProp="children"
                     onChange={onChange}
                     onFocus={onFocus}
