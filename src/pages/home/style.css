@@ -23,12 +23,9 @@
 }
 .ant-carousel {
   text-align: center;
-  height: 126px;
   line-height: 100px;
   background: #364d79;
   overflow: hidden;
-  position: absolute;
-  bottom: 76px;
   left:0;
   right: 0;
 }
@@ -61,7 +58,5 @@
   margin-bottom: 0px;
 }
 .table-style{
-  margin-top: 100px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-top: 30px;
 }
