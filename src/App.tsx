@@ -20,8 +20,7 @@ const App: React.FC = () => {
         </Row>
         <Row type="flex" justify="center" align="middle">
           <Footer/> 
-        </Row>
-        
+        </Row> 
       </CitysProvider>
     </div>
   );
