@@ -132,28 +132,69 @@ function Home() {
         setTimeout(() => { setIsLoading(false) }, 1000)
         return
       }
-      let myHeaders = new Headers({
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-    });
-      await fetch(`http://wthrcdn.etouch.cn/weather_mini?city=${city}`,
-      {
-        method: 'GET',
-        headers: myHeaders,
-        mode: 'cors'
-    })
-        .then(res => {
-          console.log(`res: ${res}`);
-          return res.json()
-          
-        })
-        .then((json)=>{
-          console.log(json)
-          setData(json);
-          setTimeout(() => { setIsLoading(false) }, 1000)
-        })
-        .catch(e => {
-          console.log(`error: ${e}`);
-        });
+      const weatherData={
+        "data": {
+            "yesterday": {
+                "date": "2日星期日",
+                "high": "高温 12℃",
+                "fx": "东南风",
+                "low": "低温 6℃",
+                "fl": "<![CDATA[<3级]]>",
+                "type": "多云"
+            },
+            "city": "苏州",
+            "forecast": [
+                {
+                    "date": "3日星期一",
+                    "high": "高温 12℃",
+                    "fengli": "<![CDATA[3-4级]]>",
+                    "low": "低温 3℃",
+                    "fengxiang": "东北风",
+                    "type": "多云"
+                },
+                {
+                    "date": "4日星期二",
+                    "high": "高温 12℃",
+                    "fengli": "<![CDATA[3-4级]]>",
+                    "low": "低温 2℃",
+                    "fengxiang": "东风",
+                    "type": "晴"
+                },
+                {
+                    "date": "5日星期三",
+                    "high": "高温 11℃",
+                    "fengli": "<![CDATA[3-4级]]>",
+                    "low": "低温 2℃",
+                    "fengxiang": "东风",
+                    "type": "多云"
+                },
+                {
+                    "date": "6日星期四",
+                    "high": "高温 7℃",
+                    "fengli": "<![CDATA[3-4级]]>",
+                    "low": "低温 4℃",
+                    "fengxiang": "东风",
+                    "type": "小雨"
+                },
+                {
+                    "date": "7日星期五",
+                    "high": "高温 8℃",
+                    "fengli": "<![CDATA[3-4级]]>",
+                    "low": "低温 3℃",
+                    "fengxiang": "东北风",
+                    "type": "阴"
+                }
+            ],
+            "ganmao": "天凉，昼夜温差较大，较易发生感冒，请适当增减衣服，体质较弱的朋友请注意适当防护。",
+            "wendu": "9"
+        },
+        "status": 1000,
+        "desc": "OK"
+    }
+      
+      setData(weatherData);
+      setTimeout(() => { setIsLoading(false) }, 1000)
+        
     };
     console.log(`result a: `);
     fetchData();
@@ -170,7 +211,7 @@ function Home() {
           <Spin tip="Loading..."></Spin>
         ) : (<div>
           <div>
-            <p className='city-style'>{(data === undefined || data === null || data.status !== 1000) ? 'NA' : data.data.city}</p>
+            <p className='city-style'>{(data === undefined || data === null || data.status !== 1000) ? 'NA' : city}</p>
             <p className='weather-style'>{(data === undefined || data === null || data.status !== 1000) ? 'NA' : data.data.forecast[0].type}</p>
             <p className='wendu-style'>{(data === undefined || data === null || data.status !== 1000) ? 'NA' : data.data.wendu}</p>
             <p className='tips-style'>{(data === undefined || data === null || data.status !== 1000) ? 'NA' : data.data.ganmao}</p>
