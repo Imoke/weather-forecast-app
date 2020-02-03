@@ -1,10 +1,10 @@
 import * as React from "react";
 import { useState, useEffect, useContext } from "react";
-import axios from "axios";
 import "antd/dist/antd.css";
 import { Carousel, Table, Spin, Icon } from "antd";
 import "./style.css"
 import { CitysContext } from '../common/Context/CityContext'
+import 'whatwg-fetch'
 const IconFont = Icon.createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_1624952_5uc8qtf5xva.js'
 });
@@ -132,11 +132,24 @@ function Home() {
         setTimeout(() => { setIsLoading(false) }, 1000)
         return
       }
-      await axios.get(`/weather_mini?city=${city}`)
+      let myHeaders = new Headers({
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    });
+      await fetch(`http://wthrcdn.etouch.cn/weather_mini?city=${city}`,
+      {
+        method: 'GET',
+        headers: myHeaders,
+        mode: 'cors'
+    })
         .then(res => {
-          setData(res.data);
+          console.log(`res: ${res}`);
+          return res.json()
+          
+        })
+        .then((json)=>{
+          console.log(json)
+          setData(json);
           setTimeout(() => { setIsLoading(false) }, 1000)
-          console.log(`res: ${res.data}`);
         })
         .catch(e => {
           console.log(`error: ${e}`);
