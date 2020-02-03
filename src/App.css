@@ -1,5 +1,7 @@
 .App {
   text-align: center;
 }
-
+.main-body{
+  height: calc(100vh - 112px)
+}
 
