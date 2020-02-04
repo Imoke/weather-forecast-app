@@ -13,12 +13,12 @@ const App: React.FC = () => {
         <Row>
           <Header/>
         </Row>
-        <Row type="flex" justify="center" align="middle" className="main-body">
+        <Row type="flex" justify="center" align="middle" className="main-content">
           <Col span={2}></Col>
           <Col span={20}><Home/></Col>
           <Col span={2}></Col>
         </Row>
-        <Row type="flex" justify="center" align="middle">
+        <Row>
           <Footer/> 
         </Row> 
       </CitysProvider>

@@ -1,7 +1,12 @@
 .App {
   text-align: center;
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  min-height: 100vh;
+  flex-direction: column;
 }
-.main-body{
-  height: calc(100vh - 112px)
+
+.main-content {
+  flex: 1;
 }
 
