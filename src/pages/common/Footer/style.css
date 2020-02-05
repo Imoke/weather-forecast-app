@@ -2,7 +2,9 @@
   display: flex;
   height: 56px;
   width:100%;
-  border-top: 1px solid #f0f0f0
+  border-top: 1px solid #f0f0f0;
+  position: fix;
+  bottom: 0px;
 }
 .copyright{
   text-align: center;
