@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Home from './pages/home'
+import About from './pages/about';
 import Header from './pages/common/Header'
 import {CitysProvider} from './pages/common/Context/CityContext'
 import { BrowserRouter, Route} from 'react-router-dom';
@@ -15,8 +16,8 @@ const App: React.FC = () => {
             <div>
               <Header />
               <Route path="/" exact component={Home}></Route>
-              <Route path="/about" exact component={Home}></Route>
-              <Footer/> 
+              <Route path="/about" exact component={About}></Route>
+              <Footer/>
             </div>
         </BrowserRouter>
       </CitysProvider>
