@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { AutoSizer } from 'react-virtualized';
 import Axios from 'axios';
-const About: React.FC = () => {
+const Help: React.FC = () => {
   // http://localhost:8765/ssologin?token=51935EEC40CED63A7E1742A8E88F0701&&username=1&&page=admin/blogs
   const [url, setUrl] = useState();
   useEffect(() => {
-    let api = `http://192.168.1.34:8765/ssologin?token=8A73E0D0F7DBBBEB06D7FADF61A85BE5&&time=20220101&&username=1&&page=admin/blogs`;
+    let api = `http://192.168.1.247:8765/ssologin?token=8A73E0D0F7DBBBEB06D7FADF61A85BE5&&time=20220101&&username=1&&page=admin/blogs`;
     Axios({
       url: api,
       method: 'get',
@@ -45,4 +45,4 @@ const About: React.FC = () => {
     );
 }
 
-export default About
+export default Help
